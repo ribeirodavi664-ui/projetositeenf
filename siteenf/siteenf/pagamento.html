@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento | Curso excelência</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- QR Code JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="topo">
+  <div class="container nav">
+    <a href="index.html" class="logo-link">
+      <div class="logo">
+        <div class="logo-icon"><img src="logo (1).jpg" alt="Logo Curso excelência"></div>
+        <div>
+          <h1>Curso excelência</h1>
+          <p>Educação em Saúde</p>
+        </div>
+      </div>
+    </a>
+
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#beneficios">Benefícios</a></li>
+        <li><a href="index.html#precos">Preços</a></li>
+        <li><a href="pagamento.html" class="btn-primary nav-btn">Inscreva-se</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu" id="menuBtn" aria-label="Abrir menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="payment-hero">
+    <div class="container">
+      <div class="payment-breadcrumb">
+        <a href="index.html">Home</a> / <span>Inscreva-se</span>
+      </div>
+      <h1>Finalize seu Pagamento</h1>
+      <p>Escolha a forma de pagamento mais conveniente para você</p>
+    </div>
+  </section>
+
+  <section class="payment-section">
+    <div class="container">
+      <div class="payment-grid">
+
+        <!-- Resumo do Pedido -->
+        <div class="order-summary">
+          <h2>Resumo do Pedido</h2>
+
+          <div class="order-item">
+            <div class="item-info">
+              <h3>Curso Profissionalizante em Hemodiálise</h3>
+              <p class="item-details">
+                <span><i class="fas fa-clock"></i> 120 horas</span>
+                <span><i class="fas fa-book"></i> Material completo</span>
+                <span><i class="fas fa-certificate"></i> Certificado</span>
+              </p>
+            </div>
+            <div class="item-price">R$ 1,00</div>
+          </div>
+
+          <div class="order-divider"></div>
+
+          <div class="order-row">
+            <span>Subtotal</span>
+            <span>R$ 1,00</span>
+          </div>
+
+          <div class="order-row">
+            <span>Desconto</span>
+            <span class="discount">- R$ 0,00</span>
+          </div>
+
+          <div class="order-total">
+            <span>Total</span>
+            <span class="total-price">R$ 1,00</span>
+          </div>
+
+          <div class="order-info">
+            <p><i class="fas fa-shield-alt"></i> Pagamento seguro e criptografado</p>
+            <p><i class="fas fa-check-circle"></i> Seu acesso começa imediatamente após o pagamento</p>
+          </div>
+        </div>
+
+        <!-- Métodos de Pagamento -->
+        <div class="payment-methods">
+          <h2>Escolha o Método de Pagamento</h2>
+
+          <!-- PIX -->
+          <div class="payment-method active" data-method="pix">
+            <div class="method-header">
+              <input type="radio" id="pix" name="payment" value="pix" checked>
+              <label for="pix">
+                <i class="fas fa-qrcode"></i>
+                <span>PIX</span>
+                <span class="method-info">Instantâneo</span>
+              </label>
+            </div>
+            <div class="method-content">
+              <p class="payment-description">
+                Escaneie o QR Code abaixo com seu aplicativo bancário ou copie a chave PIX.
+              </p>
+
+              <div class="qrcode-container">
+                <div id="qrcode"></div>
+              </div>
+
+              <div class="pix-key-section">
+                <p class="pix-label">Chave PIX (Telefone)</p>
+                <div class="pix-key-box">
+                  <input type="text" id="pixKey" value="(71) 98473-4856" readonly>
+                  <button type="button" class="copy-btn" onclick="copyPixKey()">
+                    <i class="fas fa-copy"></i> Copiar
+                  </button>
+                </div>
+              </div>
+
+              <div class="payment-instructions">
+                <h4><i class="fas fa-info-circle"></i> Como funciona:</h4>
+                <ol>
+                  <li>Abra seu app do banco ou carteira digital</li>
+                  <li>Escolha "PIX" ou "Transferência"</li>
+                  <li>Escaneie o QR Code ou copie a chave</li>
+                  <li>Confirme o valor de R$ 1,00</li>
+                  <li>Seu acesso será ativado em segundos</li>
+                </ol>
+              </div>
+
+              <div class="confirm-payment">
+                <button type="button" class="btn-primary large" onclick="confirmPayment('pix')">
+                  <i class="fas fa-check"></i> Confirmar Pagamento
+                </button>
+                <p class="payment-note">Após confirmar, você será redirecionado para seu painel</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cartão de Crédito -->
+          <div class="payment-method" data-method="card">
+            <div class="method-header">
+              <input type="radio" id="card" name="payment" value="card">
+              <label for="card">
+                <i class="fas fa-credit-card"></i>
+                <span>Cartão de Crédito</span>
+                <span class="method-info">Parcelado em até 12x</span>
+              </label>
+            </div>
+            <div class="method-content">
+              <p class="payment-description">
+                Pague com seu cartão de crédito e tenha acesso imediato ao curso.
+              </p>
+
+              <div class="form-group">
+                <label for="cardName">Nome do Titular</label>
+                <input type="text" id="cardName" placeholder="Como está no cartão">
+              </div>
+
+              <div class="form-group">
+                <label for="cardNumber">Número do Cartão</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cardExpiry">Validade</label>
+                  <input type="text" id="cardExpiry" placeholder="MM/AA" maxlength="5">
+                </div>
+                <div class="form-group">
+                  <label for="cardCvv">CVV</label>
+                  <input type="text" id="cardCvv" placeholder="123" maxlength="4">
+                </div>
+              </div>
+
+              <div class="installments-section">
+                <label for="installments">Parcelar em:</label>
+                <select id="installments">
+                  <option value="1">1x de R$ 1,00 (sem juros)</option>
+                </select>
+              </div>
+
+              <div class="confirm-payment">
+                <button type="button" class="btn-primary large" onclick="confirmPayment('card')">
+                  <i class="fas fa-lock"></i> Pagar com Segurança
+                </button>
+                <p class="payment-note">Seu pagamento é 100% seguro e criptografado</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Boleto -->
+          <div class="payment-method" data-method="boleto">
+            <div class="method-header">
+              <input type="radio" id="boleto" name="payment" value="boleto">
+              <label for="boleto">
+                <i class="fas fa-barcode"></i>
+                <span>Boleto Bancário</span>
+                <span class="method-info">Vence em 3 dias</span>
+              </label>
+            </div>
+            <div class="method-content">
+              <p class="payment-description">
+                Imprima ou pague o boleto através do seu banco. O acesso será liberado após a confirmação do pagamento.
+              </p>
+
+              <div class="form-group">
+                <label for="boletoName">Nome Completo</label>
+                <input type="text" id="boletoName" placeholder="Seu nome completo">
+              </div>
+
+              <div class="form-group">
+                <label for="boleioCPF">CPF</label>
+                <input type="text" id="boleioCPF" placeholder="123.456.789-00" maxlength="14">
+              </div>
+
+              <div class="form-group">
+                <label for="boletoEmail">Email</label>
+                <input type="email" id="boletoEmail" placeholder="seu@email.com">
+              </div>
+
+              <div class="boleto-info">
+                <i class="fas fa-info-circle"></i>
+                <p>O boleto será enviado para seu email. Você terá 3 dias para pagar e seu acesso será liberado automaticamente após a confirmação.</p>
+              </div>
+
+              <div class="confirm-payment">
+                <button type="button" class="btn-primary large" onclick="confirmPayment('boleto')">
+                  <i class="fas fa-paper-plane"></i> Gerar Boleto
+                </button>
+                <p class="payment-note">Boleto será enviado por email em segundos</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="payment-faq">
+    <div class="container">
+      <h2>Perguntas Frequentes</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Quando terei acesso ao curso?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Você terá acesso imediato após a confirmação do pagamento. Para PIX, é instantâneo. Para cartão de crédito, pode levar alguns segundos. Para boleto, após a confirmação bancária (geralmente em 1 dia útil).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Qual é a taxa de juros para parcelamento?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>O parcelamento em até 3x é sem juros. A partir da 4ª parcela, pode haver juros conforme políticas do seu banco.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Posso devolver o dinheiro?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Sim! Oferecemos 7 dias de garantia. Se não estiver satisfeito, reembolsamos 100% do valor sem fazer perguntas.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Meu pagamento não foi processado. O que faço?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Entre em contato conosco pelo WhatsApp <a href="https://wa.me/5571992432255" target="_blank">(71) 99243-2255</a> ou <a href="https://wa.me/5571996856845" target="_blank">(71) 99685-6845</a> que resolveremos em alguns minutos.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Support CTA -->
+  <section class="payment-support-cta">
+    <div class="container center">
+      <h2>Precisa de Ajuda?</h2>
+      <p>Nossa equipe está disponível para esclarecer dúvidas sobre o pagamento</p>
+      <a href="https://wa.me/5571992432255?text=Olá,%20tenho%20dúvidas%20sobre%20o%20pagamento!"
+         class="btn-primary large" target="_blank" rel="noopener">
+        <i class="fas fa-user-plus"></i> Fale Conosco no WhatsApp
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <div class="logo" style="margin-bottom: 15px;">
+        <div class="logo-icon"><img src="logo (1).jpg" alt="Logo Curso excelência"></div>
+        <div>
+          <h3>Curso excelência</h3>
+          <p>Educação em Saúde</p>
+        </div>
+      </div>
+      <p>Transformando profissionais de saúde em especialistas em hemodiálise desde 2018.</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <p><i class="fas fa-phone-alt"></i> <a href="https://wa.me/5571992432255" target="_blank" rel="noopener">(+55 71) 99243-2255</a></p>
+      <p><i class="fas fa-phone-alt"></i> <a href="https://wa.me/5571996856845" target="_blank" rel="noopener">(+55 71) 99685-6845</a></p>
+      <p><i class="fas fa-phone-alt"></i> <a href="https://wa.me/5571984734856" target="_blank" rel="noopener">(+55 71) 98473-4856</a></p>
+      <p><i class="fas fa-envelope"></i> contato@hemodialise.com.br</p>
+    </div>
+    <div class="footer-social">
+      <h4>Redes Sociais</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Curso excelência. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/5571992432255?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso!" class="whatsapp-btn" target="_blank" rel="noopener" title="Fale conosco no WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="pagamento.js"></script>
+</body>
+</html>
