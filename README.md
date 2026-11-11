@@ -12,7 +12,7 @@ Estatísticas de credibilidade (500+ alunos formados, 120h de carga horária)
 2. Captação de Leads
 Formulário de newsletter para capturar e-mails
 
-Call-to-action estratégicos para inscrição
+Call-to-action estratégicos para inscriçãoH
 
 Botão flutuante do WhatsApp para contato imediato
 
